@@ -9,7 +9,7 @@ void print_array(double a[], int n)
 {
     for (int i = 0; i < n; i++)
         printf("%.15g ", a[i]);
-    puts("");
+    printf("\n");
 }
 
 int main(void)
@@ -21,8 +21,7 @@ int main(void)
     SetConsoleOutputCP(CP_UTF8);
 #endif
 
-    puts("Лабораторна робота №5");
-    puts("1 — №102, 2 — №109, 3 — №128, 4 — №165, 5 — №16, 6 — №107");
+    printf("1 — №102, 2 — №109, 3 — №128, 4 — №165, 5 — №16, 6 — №107\n");
     printf("Виберіть завдання: ");
     if (scanf("%d", &task) != 1 || task < 1 || task > 6)
         return 1;
@@ -31,7 +30,7 @@ int main(void)
     if (scanf("%d", &n) != 1 || n < 1 || n > MAX)
         return 1;
 
-    puts(task == 4 ? "Введіть тиск за кожен день (740–780):" : "Введіть елементи масиву:");
+    printf("%s\n", task == 4 ? "Введіть тиск за кожен день (740–780):" : "Введіть елементи масиву:");
     for (int i = 0; i < n; i++) {
         if (task == 1 || task == 6) {
             int value;
@@ -42,7 +41,7 @@ int main(void)
             return 1;
         }
         if (task == 4 && (a[i] < 740 || a[i] > 780)) {
-            puts("Тиск має бути від 740 до 780.");
+            printf("Тиск має бути від 740 до 780.\n");
             return 1;
         }
     }
@@ -53,7 +52,7 @@ int main(void)
         while (i < n && (int)a[i] % 6 == 0)
             i++;
         if (i == n) {
-            puts("Елементи видалення не знайдені.");
+            printf("Елементи видалення не знайдені.\n");
             break;
         }
         for (; i < n - 1; i++)
@@ -139,13 +138,13 @@ int main(void)
         for (int i = 0; i < n; i++) printf("%g ", a[i] * a[n - 1]);
         printf("\nе) ");
         for (int i = 0; i < n; i++) printf("%g ", a[i] + y);
-        puts("");
+        printf("\n");
         return 0;
     }
     case 6: {
         int value;
         if (n < 9) {
-            puts("Для вставки на 10-те місце потрібно щонайменше 9 елементів.");
+            printf("Для вставки на 10-те місце потрібно щонайменше 9 елементів.\n");
             return 1;
         }
         printf("Число для вставки: ");
